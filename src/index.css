@@ -32,7 +32,13 @@ header {
 }
 .app {
   margin: 0 auto;
-  width: 1024px;
+  width: 100%;
+}
+
+@media (min-width: 768px) {
+  .app {
+    max-width: 1024px;
+  }
 }
 
 h1 {
@@ -74,8 +80,13 @@ button:focus-visible {
   align-items: center;
   margin: 1rem 0 1.5rem 0;
   justify-content: space-between;
+  flex-direction: column;
 }
-
+@media (min-width: 768px) {
+  .controls {
+   flex-direction: row;
+  }
+}
 .type-buttons, .reset-buttons {
   display: flex;
   gap: 8px;
@@ -83,18 +94,30 @@ button:focus-visible {
 
 .snippet-list {
   display: flex;
-  flex-direction: row;
   gap: 12px;
   justify-content: space-between;
+  flex-direction: column;
 }
+
 .snippet-list > div {
-  width: 33.33%;
-  max-width: 100ch;          /* ~100 characters wide */
+  max-width: 30ch;          /* ~100 characters wide */
   white-space: nowrap;       /* single line */
   overflow: hidden;
   text-overflow: ellipsis;
 }
 
+@media (min-width: 768px) {
+  .snippet-list  {
+    flex-direction: row;
+  }
+}
+@media (min-width: 768px) {
+  .snippet-list > div  {
+    width: 33.33%;
+    flex-direction: row;
+    max-width: 100ch;
+  }
+}
 .wrap-pre {
   white-space: pre-wrap;
   word-break: break-word;

@@ -8,7 +8,7 @@ GlobalWorkerOptions.workerSrc = workerSrc;
 
 const STORAGE_TEXT_KEY = "pdf_text";
 
-export default function App(): JSX.Element {
+export default function App() {
   const [loading, setLoading] = useState(false);
   const [pdfText, setPdfText] = useState("");
   const [spansByType, setSpansByType] = useState<Record<string, HighlightSpan[]>>({});

@@ -1,4 +1,3 @@
-import React from "react";
 import type {HighlightSpan} from "./HighlightedText";
 type HighLightsProps = {
   highlights: Record<string, HighlightSpan[]>;
@@ -16,7 +15,6 @@ const HighLights = ({ highlights }:HighLightsProps) => {
                 <ul>
                   {value.map(s => (
                     <li key={s.id} className="snippet">
-                      <div className="meta"><strong>{s.title}</strong></div>
                       <div className="snippet-text">{s.text}</div>
                     </li>
                   ))}

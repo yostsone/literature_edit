@@ -3,7 +3,6 @@ type HighLightsProps = {
   highlights: Record<string, HighlightSpan[]>;
 }
 const HighLights = ({ highlights }:HighLightsProps) => {
-  console.log(highlights);
   return (
       <aside className="snippets">
         <h2>Selected Items</h2>

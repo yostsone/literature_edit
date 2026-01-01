@@ -3,6 +3,6 @@ import react from '@vitejs/plugin-react'
 
 // https://vite.dev/config/
 export default defineConfig({
-  base: '/literature_edit/',
+  base: '/literature_edit',
   plugins: [react()],
 })

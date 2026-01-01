@@ -6,7 +6,6 @@ import { GlobalWorkerOptions, getDocument } from 'pdfjs-dist';
 import workerSrc from 'pdfjs-dist/build/pdf.worker.min.mjs?url';
 import { HighlightedText, type HighlightSpan } from '../HighLights/HighlightedText';
 import { HIGHLIGHT_TYPES, storageKeyForType } from '../../types/highlightTypes';
-import HighLights from '../HighLights/HighLights';
 GlobalWorkerOptions.workerSrc = workerSrc;
 
 const STORAGE_TEXT_KEY = 'pdf_text';

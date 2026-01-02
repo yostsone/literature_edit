@@ -1,13 +1,13 @@
 import React from "react";
-
-export interface HighlightSpan {
-  id: number;
-  start: number;   // inclusive
-  end: number;     // exclusive
-  typeId: string;
-  color: string;   // any CSS color (#rgb, #rrggbb, #rrggbbaa, rgba(), hsla(), name)
-  text?: string;
-}
+import type { HighlightSpanType } from '../../types/highlightTypes';
+// export interface HighlightSpan {
+//   id: number;
+//   start: number;   // inclusive
+//   end: number;     // exclusive
+//   typeId: string;
+//   color: string;   // any CSS color (#rgb, #rrggbb, #rrggbbaa, rgba(), hsla(), name)
+//   text?: string;
+// }
 
 /**
  * Convert a hex or named/rgba/hsla color to an RGBA string with a given alpha
@@ -89,7 +89,7 @@ function toOpaque(color: string): string {
 
 interface HighlightedTextProps {
   text: string;
-  spans: HighlightSpan[];
+  spans: HighlightSpanType[];
   perHighlightAlpha?: number; // transparency for background layering
   forceAlpha?: boolean;       // force applying alpha even for rgba/hsla/named
   showAllBorders?: boolean;   // if true, stack box-shadows for each highlight
@@ -105,7 +105,7 @@ export function HighlightedText({
 }: HighlightedTextProps) {
   if (!text) return null;
 
-  type Event = { pos: number; type: "start" | "end"; span: HighlightSpan };
+  type Event = { pos: number; type: "start" | "end"; span: HighlightSpanType };
   const events: Event[] = [];
 
   for (const s of spans) {
@@ -122,9 +122,9 @@ export function HighlightedText({
 
   const parts: React.ReactNode[] = [];
   let cursor = 0;
-  const active: HighlightSpan[] = [];
+  const active: HighlightSpanType[] = [];
 
-  function renderSegment(segmentText: string, activeSpans: HighlightSpan[], key: string) {
+  function renderSegment(segmentText: string, activeSpans: HighlightSpanType[], key: string) {
     if (activeSpans.length === 0) return <span key={key}>{segmentText}</span>;
 
     // Multiple layered backgrounds (transparent)

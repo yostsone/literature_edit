@@ -1,18 +1,17 @@
 import React from 'react';
 import { Box, Grid, Paper, Typography, alpha } from '@mui/material';
-import type { HighlightSpan } from '../HighLights/HighlightedText';
-import SideMenuItems from "./SideMenuItems";
+import type { SetBucketsByType } from '../../types/highlightTypes';
+import SideMenuItems from './SideMenuItems';
 
 type SideMenuProps = {
   pdfText: string;
   textRef: React.RefObject<HTMLDivElement | null>;
-  setSpansByType: (spans: Record<string, HighlightSpan[]>) => void
+  setBucketsByType: SetBucketsByType;
 }
 
-export default function SideMenu({ textRef, setSpansByType, pdfText }: SideMenuProps) {
+export default function SideMenu({ textRef, setBucketsByType, pdfText }: SideMenuProps) {
   return (
     <Grid
-      item
       size={2}
       sx={{
         position: "sticky",
@@ -38,7 +37,7 @@ export default function SideMenu({ textRef, setSpansByType, pdfText }: SideMenuP
           >
            Burciņas
           </Typography>
-          <SideMenuItems textRef={textRef} setSpansByType={setSpansByType} pdfText={pdfText}/>
+          <SideMenuItems textRef={textRef} setBucketsByType={setBucketsByType} pdfText={pdfText}/>
         </Paper>
       </Box>
     </Grid>

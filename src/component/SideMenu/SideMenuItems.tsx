@@ -1,15 +1,15 @@
 import React from 'react';
 import { Button, Grid } from '@mui/material';
-import { HIGHLIGHT_TYPES } from '../../types/highlightTypes';
-import type { HighlightSpan } from '../HighLights/HighlightedText';
+import { HIGHLIGHT_TYPES } from '../../constants';
+import type { HighlightSpanType, BucketType, SetBucketsByType } from '../../types/highlightTypes';
 
 type SideMenuItemsProps = {
   pdfText: string;
-  setSpansByType: (spans: Record<string, HighlightSpan[]>) => void;
+  setBucketsByType: SetBucketsByType;
   textRef: React.RefObject<HTMLDivElement | null>;
 }
 export default function SideMenuItems(
-    { setSpansByType, textRef, pdfText }: SideMenuItemsProps
+    { setBucketsByType, textRef, pdfText }: SideMenuItemsProps
 ) {
   function addHighlightForType(typeId: string) {
     if (!pdfText) {
@@ -24,7 +24,7 @@ export default function SideMenuItems(
     const type = HIGHLIGHT_TYPES.find(t => t.id === typeId);
     if (!type) return;
     const { start, end } = selection;
-    const newSpan: HighlightSpan = {
+    const newSpan: HighlightSpanType = {
       id: Date.now(),
       start: Math.max(0, Math.min(start, pdfText.length)),
       end: Math.max(0, Math.min(end, pdfText.length)),
@@ -32,7 +32,9 @@ export default function SideMenuItems(
       color: type.color,
       text: pdfText.slice(start, end),
     };
-    setSpansByType(prev => ({
+
+    // @ts-ignore
+    setBucketsByType(prev => ({
       ...prev,
       [type.id]: [...(prev[type.id] ?? []), newSpan],
     }));

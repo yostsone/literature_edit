@@ -1,6 +1,7 @@
-import type {HighlightSpan} from "./HighlightedText";
+import type { HighlightSpanType } from '../../types/highlightTypes';
+
 type HighLightsProps = {
-  highlights: Record<string, HighlightSpan[]>;
+  highlights: Record<string, HighlightSpanType[]>;
 }
 const HighLights = ({ highlights }:HighLightsProps) => {
   return (

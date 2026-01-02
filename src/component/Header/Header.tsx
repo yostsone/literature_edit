@@ -25,7 +25,17 @@ export default function Header() {
             }}
           >
             <Toolbar>
-              <Typography variant="h6">Nosaukums??</Typography>
+              <Typography
+                variant="h6"
+                sx={{
+                  fontSize: "1rem",
+                  border: "2px dashed white",
+                  padding: "5px",
+                  borderRadius: "5px",
+                }}
+              >
+                  Nosaukums??
+              </Typography>
             </Toolbar>
             <MainMenu />
           </Grid>

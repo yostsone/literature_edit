@@ -9,9 +9,11 @@ export interface HighlightType {
  * Keep ids stable (localStorage persistence depends on them).
  */
 export const HIGHLIGHT_TYPES: HighlightType[] = [
-  { id: "events",     name: "events",     color: "#fde68a" }, // soft yellow
-  { id: "characters", name: "characters", color: "#bae6fd" }, // light blue
-  { id: "symbols",    name: "symbols",    color: "#e9d5ff" }, // light purple
+  { id: 'characters', name: 'Tēli',         color: '#e8d3b4' }, // light brown
+  { id: 'time',       name: 'Vide & laiks', color: '#ffc1b6' }, // light red
+  { id: 'events',     name: 'Notikumi',     color: '#bae6fd' }, // light blue
+  { id: 'language',   name: 'Valoda',       color: '#fde68a' }, // light yellow
+  { id: 'symbols',    name: 'Simboli',      color: '#d0f0c0' }, // light green
 ];
 
 export function storageKeyForType(typeId: string) {

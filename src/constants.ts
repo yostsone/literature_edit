@@ -1,0 +1,1 @@
+export const STORAGE_PDF_TEXT = 'pdf_text';

@@ -1,7 +1,8 @@
 import React from 'react';
-import { Button, Grid } from '@mui/material';
+import {Button, Grid, useMediaQuery} from '@mui/material';
 import { HIGHLIGHT_TYPES } from '../../constants';
 import type { HighlightSpanType, BucketType, SetBucketsByType } from '../../types/highlightTypes';
+import { isMobileWidth } from "../../utils/globalUtils";
 
 type SideMenuItemsProps = {
   pdfText: string;
@@ -11,6 +12,7 @@ type SideMenuItemsProps = {
 export default function SideMenuItems(
     { setBucketsByType, textRef, pdfText }: SideMenuItemsProps
 ) {
+  const isMobile = isMobileWidth();
   function addHighlightForType(typeId: string) {
     if (!pdfText) {
       return;
@@ -65,15 +67,23 @@ export default function SideMenuItems(
   }
 
   return (
-    <Grid container gap={2}>
+    <Grid
+      gap={2}
+      container
+      direction={ isMobile? "row" : "column" }
+      justifyContent="space-between"
+    >
       { HIGHLIGHT_TYPES.map((t) => (
         <Button
           key={t.id}
-          sx={{backgroundColor: t.color, width: "100%", fontWeight: "bold"}}
+          sx={{
+            backgroundColor: t.color,
+            fontWeight: "bold",
+          }}
           onClick={() => addHighlightForType(t.id)}
           disabled={!pdfText}
         >
-          {t.name}
+          { isMobile ? t.name.slice(0,1) : t.name}
         </Button>
       ))}
     </Grid>

@@ -7,8 +7,10 @@ import ActionUpload from './ActionUpload';
 import ActionReset from './ActionReset';
 import Loader from '../Loader/Loader';
 import { HIGHLIGHT_TYPES, STORAGE_PDF_TEXT} from '../../constants';
+import { isMobileWidth } from '../../utils/globalUtils';
 
 export default function FileUpload() {
+  const isMobile = isMobileWidth();
   const [isLoading, setIsLoading] = useState(false);
   const [pdfText, setPdfText] = useState('');
   const [bucketsByType, setBucketsByType] = useState<BucketType>({});
@@ -71,7 +73,7 @@ export default function FileUpload() {
         { pdfText && <ActionReset setBucketsByType={setBucketsByType} setPdfText={setPdfText} /> }
       </Grid>
       { isLoading && <Loader />}
-      { pdfText && <Grid container spacing={2} sx={{ pt:"24px"}}>
+      { pdfText && <Grid container spacing={2} sx={{ pt:"24px"}} direction={ isMobile ? "column-reverse" : "row" }>
         <Grid size="grow">
           <Paper
             ref={textRef}

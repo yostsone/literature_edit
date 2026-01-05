@@ -1,5 +1,5 @@
 import React from 'react';
-import { Box, Grid, Paper, Typography, alpha } from '@mui/material';
+import { Grid, Paper, Typography, alpha } from '@mui/material';
 import type { SetBucketsByType } from '../../types/highlightTypes';
 import SideMenuItems from './SideMenuItems';
 
@@ -15,11 +15,16 @@ export default function SideMenu({ textRef, setBucketsByType, pdfText }: SideMen
       size={2}
       sx={{
         position: "sticky",
-        top: "80px",
+        top: { xs: "55px", sm: "60px",  md: "80px"},
         alignSelf: "flex-start",
+        width: { xs: "100%", sm: "100%", md: "auto"},
       }}
     >
-      <Box sx={{ display: "flex" }}>
+      <Grid
+        sx={(theme) => ({
+          backgroundColor: theme.palette.background.paper,
+        })}
+      >
         <Paper
           elevation={2}
           sx={(theme) => ({
@@ -39,7 +44,7 @@ export default function SideMenu({ textRef, setBucketsByType, pdfText }: SideMen
           </Typography>
           <SideMenuItems textRef={textRef} setBucketsByType={setBucketsByType} pdfText={pdfText}/>
         </Paper>
-      </Box>
+      </Grid>
     </Grid>
   );
 }

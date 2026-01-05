@@ -35,6 +35,13 @@ const theme = createTheme({
       main: "#4682b4", // Muted earthy blue
     },
   },
+  typography: {
+    h4: {
+      [`@media (max-width:899px)`]: { // to fit mobile menu width
+        fontSize: "1.5rem"
+      },
+    },
+  },
   components: {
     MuiButton: {
       styleOverrides: {
@@ -49,14 +56,7 @@ const theme = createTheme({
           backgroundColor: "#f8f8f0", // Override body background color
         },
       },
-    },
-    // MuiPaper: {
-    //   styleOverrides: {
-    //     root: {
-    //       minHeight: "calc(100vh - 64px)", // Set global min-height for all `<Container>` elements
-    //     },
-    //   },
-    // },
+    }
   },
 });
 

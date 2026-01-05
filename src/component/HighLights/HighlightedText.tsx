@@ -1,13 +1,5 @@
 import React from "react";
 import type { HighlightSpanType } from '../../types/highlightTypes';
-// export interface HighlightSpan {
-//   id: number;
-//   start: number;   // inclusive
-//   end: number;     // exclusive
-//   typeId: string;
-//   color: string;   // any CSS color (#rgb, #rrggbb, #rrggbbaa, rgba(), hsla(), name)
-//   text?: string;
-// }
 
 /**
  * Convert a hex or named/rgba/hsla color to an RGBA string with a given alpha

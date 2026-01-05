@@ -14,3 +14,9 @@ export const MENU_ITEMS = [
   { id: 2, title: 'Teksta analīze', link: '/literature_edit/analysis' },
   { id: 3, title: 'Piezīmes', link: '/literature_edit/notes' }
 ];
+
+export const CHARACTERS = [
+  { id: 1, name: 'Lāčplēšis' },
+  { id: 2, name: 'Cibiņš' },
+  { id: 3, name: 'Anna no zaļajiem jumtiem' }
+]

@@ -11,6 +11,7 @@ export type HighlightSpanType = {
   typeId: string;
   color: string;   // any CSS color (#rgb, #rrggbb, #rrggbbaa, rgba(), hsla(), name)
   text?: string;
+  characterId: number; // character ID
 }
 
 export type BucketType = Record<string, HighlightSpanType[]>;

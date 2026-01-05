@@ -8,3 +8,9 @@ export const HIGHLIGHT_TYPES: HighlightType[] = [
   { id: 'language',   name: 'Valoda',       color: '#fde68a' }, // light yellow
   { id: 'symbols',    name: 'Simboli',      color: '#d0f0c0' }, // light green
 ];
+
+export const MENU_ITEMS = [
+  { id: 1, title: 'Augšupielāde', link: '/literature_edit/upload' },
+  { id: 2, title: 'Teksta analīze', link: '/literature_edit/analysis' },
+  { id: 3, title: 'Piezīmes', link: '/literature_edit/notes' }
+];

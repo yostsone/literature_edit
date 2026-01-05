@@ -1,12 +1,13 @@
-import { Grid } from '@mui/material';
-import MenuItem from './MenuItem';
+import { useMediaQuery, Box } from '@mui/material';
+import MobileMenu from './MobileMenu';
+import DesktopMenu from './DesktopMenu';
 
 export default function MainMenu() {
+  const isMobile = useMediaQuery((theme) => theme.breakpoints.down('md'));
+
   return (
-    <Grid container gap={4}>
-      <MenuItem link="/literature_edit/upload" title="Augšupielāde" />
-      <MenuItem link="/literature_edit/analysis" title="Teksta analīze" />
-      <MenuItem link="/literature_edit/notes" title="Piezīmes" />
-    </Grid>
+      <Box>
+        {isMobile ? <MobileMenu /> : <DesktopMenu />}
+      </Box>
   );
 }

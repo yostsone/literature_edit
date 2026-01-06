@@ -66,7 +66,6 @@ export default function FileUpload() {
     <Box>
       <Grid
         container
-        spacing={2}
         sx={{ justifyContent: "space-between" }}
       >
         <ActionUpload setIsLoading={setIsLoading} fileInputRef={fileInputRef} setPdfText={setPdfText} setBucketsByType={setBucketsByType} />

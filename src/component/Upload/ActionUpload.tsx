@@ -1,7 +1,7 @@
 import React from 'react';
 import { GlobalWorkerOptions } from 'pdfjs-dist';
 import { getDocument } from 'pdfjs-dist';
-import { Button, Tooltip } from '@mui/material';
+import { Button, Box, Tooltip } from '@mui/material';
 import { styled } from '@mui/material/styles';
 import CloudUploadIcon from '@mui/icons-material/CloudUpload';
 import type { HighlightSpanType, SetBucketsByType } from '../../types/highlightTypes';
@@ -55,7 +55,7 @@ export default function ActionUpload(
       for (const t of HIGHLIGHT_TYPES) cleared[t.id] = [];
       setBucketsByType(cleared);
     } catch (err) {
-      alert('Failed to read PDF');
+      alert('Neizdevās nolasīt PDF failu!');
     } finally {
       setIsLoading(false);
       if (fileInputRef.current) fileInputRef.current.value = '';
@@ -63,28 +63,24 @@ export default function ActionUpload(
   }
 
   return (
-    <div className="app">
-      <div>
-        <div>
-          <Tooltip title="Izvēlies PDF failu" arrow>
-          <Button
-            component="label"
-            role={undefined}
-            variant="contained"
-            tabIndex={-1}
-            startIcon={<CloudUploadIcon />}
-          >
-            PDF faila izvēle
-            <VisuallyHiddenInput
-              type="file"
-              onChange={handleFileChange}
-              accept="application/pdf"
-              ref={fileInputRef}
-            />
-            </Button>
-          </Tooltip>
-        </div>
-      </div>
-    </div>
+    <Box>
+      <Tooltip title="Izvēlies PDF failu" arrow>
+        <Button
+          component="label"
+          role={undefined}
+          variant="contained"
+          tabIndex={-1}
+          startIcon={<CloudUploadIcon />}
+        >
+          PDF faila izvēle
+          <VisuallyHiddenInput
+            type="file"
+            onChange={handleFileChange}
+            accept="application/pdf"
+            ref={fileInputRef}
+          />
+        </Button>
+      </Tooltip>
+    </Box>
   );
 }

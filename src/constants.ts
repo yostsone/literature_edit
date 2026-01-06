@@ -19,4 +19,10 @@ export const CHARACTERS = [
   { id: 1, name: 'Lāčplēšis' },
   { id: 2, name: 'Cibiņš' },
   { id: 3, name: 'Anna no zaļajiem jumtiem' }
+];
+
+export const FAVORITE_QUOTES = [
+  { id: 1, character: 'Lāčplēšis', text: 'Tā bija vislabākā no visām iespējām, tā bija visļaunākā no visām iespējām...' },
+  { id: 2, character: 'Laimdota',  text: 'Brīvība ir atbildība; tāpēc daudzi to baidās.' },
+  { id: 3, character: 'Juris',     text: 'Dzīve ir tas, kas notiek, kamēr tu esi aizņemts ar citiem plāniem.' }
 ]

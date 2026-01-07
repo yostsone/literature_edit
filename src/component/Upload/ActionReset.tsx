@@ -3,9 +3,9 @@ import { Button, Box, List, ListItemButton, ListItemText} from '@mui/material';
 import Popover from '@mui/material/Popover';
 import DeleteOutlineIcon from '@mui/icons-material/DeleteOutline';
 import MoreVertIcon from '@mui/icons-material/MoreVert';
-import { storageKeyForType, type HighlightSpanType, type SetBucketsByType } from '../../types/highlightTypes';
+import type { HighlightSpanType, SetBucketsByType } from '../../types/highlightTypes';
 import { HIGHLIGHT_TYPES, STORAGE_PDF_TEXT } from '../../constants';
-import { isMobileWidth } from '../../utils/globalUtils';
+import { isMobileWidth, storageKeyForType } from '../../utils/globalUtils';
 
 type ActionResetProps = {
   setPdfText: (text: string) => void;

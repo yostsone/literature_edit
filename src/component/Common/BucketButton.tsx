@@ -2,17 +2,16 @@ import { Button, Typography } from '@mui/material';
 import { isMobileWidth } from '../../utils/globalUtils';
 
 type BucketButtonProps = {
-  keyValue: string;
+  typeId: string;
   title: string;
   color: string;
-  onClick: () => void;
+  onBucketClick: (typeId: string) => void;
 }
 
-export default function BucketButton({ keyValue, title, color, onClick}: BucketButtonProps) {
+export default function BucketButton({ typeId, title, color, onBucketClick}: BucketButtonProps) {
   const isMobile = isMobileWidth();
   return (
     <Button
-      key={keyValue}
       sx={{
         width: "100%",
         backgroundColor: color,
@@ -53,7 +52,7 @@ export default function BucketButton({ keyValue, title, color, onClick}: BucketB
           boxShadow: "0px 6px 12px rgba(0, 0, 0, 0.3)",
         },
       }}
-      onClick={onClick}
+      onClick={() => onBucketClick(typeId)}
       >
         <Typography
           sx={{

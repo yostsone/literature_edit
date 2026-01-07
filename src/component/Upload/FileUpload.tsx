@@ -1,13 +1,13 @@
 import  React, { useEffect, useRef, useState } from 'react';
 import { Box, Grid, Paper, alpha } from '@mui/material';
+import { HIGHLIGHT_TYPES, STORAGE_PDF_TEXT} from '../../constants';
+import { isMobileWidth, storageKeyForType } from '../../utils/globalUtils';
 import { HighlightedText } from '../HighLights/HighlightedText';
-import SideMenu from "../SideMenu/SideMenu";
-import { storageKeyForType, type HighlightSpanType, type BucketType } from '../../types/highlightTypes';
+import SideMenu from '../SideMenu/SideMenu';
+import type { HighlightSpanType, BucketType } from '../../types/highlightTypes';
 import ActionUpload from './ActionUpload';
 import ActionReset from './ActionReset';
 import Loader from '../Loader/Loader';
-import { HIGHLIGHT_TYPES, STORAGE_PDF_TEXT} from '../../constants';
-import { isMobileWidth } from '../../utils/globalUtils';
 
 export default function FileUpload() {
   const isMobile = isMobileWidth();

@@ -17,7 +17,3 @@ export type HighlightSpanType = {
 export type BucketType = Record<string, HighlightSpanType[]>;
 
 export type SetBucketsByType = (spans: BucketType) => void;
-
-export function storageKeyForType(typeId: string) {
-  return `pdf_highlights_${typeId}`;
-}

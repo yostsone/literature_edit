@@ -1,4 +1,5 @@
 import { useMediaQuery, useTheme } from '@mui/material';
+import { CHARACTERS } from '../constants';
 
 export function isMobileWidth() {
   const theme = useTheme(); // Access the theme object
@@ -6,7 +7,16 @@ export function isMobileWidth() {
 }
 
 export function canBeNumber(value: string): boolean {
-  console.log(typeof value);
   if (value.trim() === "") return false;
   return !isNaN(Number(value));
+}
+
+// To be updated with local storage values in the future
+export function getCharacterNameById(characterId: number): string {
+  const character = CHARACTERS.find(char => char.id === characterId);
+  return character ? character.name : 'Nezināms varonis';
+}
+
+export function storageKeyForType(typeId: string) {
+  return `pdf_highlights_${typeId}`;
 }

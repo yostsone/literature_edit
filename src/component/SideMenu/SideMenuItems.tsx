@@ -1,9 +1,9 @@
 import React from 'react';
-import { Button, Box, Grid, Typography } from '@mui/material';
+import { Grid } from '@mui/material';
 import { HIGHLIGHT_TYPES } from '../../constants';
 import { getSelectionRangeInside } from '../../utils/saveHighlightUtils';
-import { isMobileWidth } from "../../utils/globalUtils";
-import BucketButton from "../Bucket/BucketButton";
+import { isMobileWidth } from '../../utils/globalUtils';
+import BucketButton from '../Common/BucketButton';
 
 type SideMenuItemsProps = {
   textRef: React.RefObject<HTMLDivElement | null>;
@@ -36,7 +36,7 @@ export default function SideMenuItems({ textRef, setBucketClicked }: SideMenuIte
     >
       { HIGHLIGHT_TYPES.map((t) => (
         <Grid size={{ xs: 4, sm: 3, md: 12}} key={t.id}>
-          <BucketButton onClick={() => addHighlightForType(t.id)} keyValue={t.id} title={t.name} color={t.color}/>
+          <BucketButton onBucketClick={addHighlightForType} typeId={t.id} title={t.name} color={t.color}/>
         </Grid>
       ))}
     </Grid>

@@ -3,7 +3,7 @@ import { HighlightType } from './types/highlightTypes';
 export const STORAGE_PDF_TEXT = 'pdf_text';
 export const HIGHLIGHT_TYPES: HighlightType[] = [
   { id: 'characters', name: 'Tēli',         color: '#e8d3b4' }, // light brown
-  { id: 'time',       name: 'Vide&laiks', color: '#ffc1b6' }, // light red
+  { id: 'time',       name: 'Vide&laiks',   color: '#ffc1b6' }, // light red
   { id: 'events',     name: 'Notikumi',     color: '#bae6fd' }, // light blue
   { id: 'language',   name: 'Valoda',       color: '#fde68a' }, // light yellow
   { id: 'symbols',    name: 'Simboli',      color: '#d0f0c0' }, // light green
@@ -22,7 +22,7 @@ export const CHARACTERS = [
 ];
 
 export const FAVORITE_QUOTES = [
-  { id: 1, character: 'Lāčplēšis', text: 'Tā bija vislabākā no visām iespējām, tā bija visļaunākā no visām iespējām...' },
-  { id: 2, character: 'Laimdota',  text: 'Brīvība ir atbildība; tāpēc daudzi to baidās.' },
-  { id: 3, character: 'Juris',     text: 'Dzīve ir tas, kas notiek, kamēr tu esi aizņemts ar citiem plāniem.' }
+  { id: 1, characterId: 1, text: 'Tā bija vislabākā no visām iespējām, tā bija visļaunākā no visām iespējām...' },
+  { id: 2, characterId: 2, text: 'Brīvība ir atbildība; tāpēc daudzi to baidās.' },
+  { id: 3, characterId: 3, text: 'Dzīve ir tas, kas notiek, kamēr tu esi aizņemts ar citiem plāniem.' }
 ]

@@ -1,8 +1,9 @@
 import React from 'react';
-import { Button, Grid } from '@mui/material';
+import { Button, Box, Grid, Typography } from '@mui/material';
 import { HIGHLIGHT_TYPES } from '../../constants';
 import { getSelectionRangeInside } from '../../utils/saveHighlightUtils';
 import { isMobileWidth } from "../../utils/globalUtils";
+import BucketButton from "../Bucket/BucketButton";
 
 type SideMenuItemsProps = {
   textRef: React.RefObject<HTMLDivElement | null>;
@@ -26,22 +27,17 @@ export default function SideMenuItems({ textRef, setBucketClicked }: SideMenuIte
 
   return (
     <Grid
-      gap={2}
       container
-      direction={ isMobile? "row" : "column" }
-      justifyContent="space-between"
+      direction={{ xs: "row", md: "column" }}
+      justifyContent={{ xs: "flex-start" , md: "space-between" }}
+      rowSpacing={4}
+      columnSpacing={{ xs: 4, sm: 8 }}
+      sx={{ paddingBottom: "20px" }}
     >
       { HIGHLIGHT_TYPES.map((t) => (
-        <Button
-          key={t.id}
-          sx={{
-            backgroundColor: t.color,
-            fontWeight: "bold",
-          }}
-          onClick={() => addHighlightForType(t.id)}
-        >
-          { isMobile ? t.name.slice(0,1) : t.name}
-        </Button>
+        <Grid size={{ xs: 4, sm: 3, md: 12}} key={t.id}>
+          <BucketButton onClick={() => addHighlightForType(t.id)} keyValue={t.id} title={t.name} color={t.color}/>
+        </Grid>
       ))}
     </Grid>
   );

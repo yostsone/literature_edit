@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import { Button, Box, List, ListItemButton, ListItemText} from '@mui/material';
 import Popover from '@mui/material/Popover';
-import { MoreVert, DeleteOutline } from '@mui/icons-material';
+import DeleteOutlineIcon from '@mui/icons-material/DeleteOutline';
+import MoreVertIcon from '@mui/icons-material/MoreVert';
 import { storageKeyForType, type HighlightSpanType, type SetBucketsByType } from '../../types/highlightTypes';
 import { HIGHLIGHT_TYPES, STORAGE_PDF_TEXT } from '../../constants';
 import { isMobileWidth } from '../../utils/globalUtils';
@@ -68,8 +69,8 @@ export default function ActionReset({ setPdfText, setBucketsByType }: ActionRese
         aria-describedby={id}
         type="button"
         onClick={handleClick}
-        endIcon={<MoreVert />}
-        startIcon={<DeleteOutline />}
+        endIcon={<MoreVertIcon />}
+        startIcon={<DeleteOutlineIcon />}
         sx={{ p: { xs: "10px", sm: "10px", md: "auto" } }}
       >
         { isMobile ? '' : 'Notīrīt' }

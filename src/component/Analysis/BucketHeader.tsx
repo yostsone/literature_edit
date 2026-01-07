@@ -22,7 +22,7 @@ export default function BucketHeader({ setSelectedBucket }: SelectBucketType) {
       { HIGHLIGHT_TYPES.map((t) => (
         <Grid
           key={t.id}
-          sx={{width: { xs: "65px", md:"142px"}}}
+          sx={{width: { xs: "65px", md: "142px"}}}
         >
           <BucketButton onBucketClick={onBucketClick} typeId={t.id} title={t.name} color={t.color}/>
         </Grid>

@@ -1,16 +1,19 @@
 import { Box, Paper, Typography } from '@mui/material';
 import { getCharacterNameById } from '../../utils/globalUtils';
+import FavoriteButton from './FavouriteButton';
+
 type QuoteItemProps = {
-  quote: string,
-  characterId: number,
+  quote: string;
+  characterId: number;
+  showFavoriteButton?: boolean;
 }
 
-export default function QuoteItem({ quote, characterId }: QuoteItemProps) {
+export default function QuoteItem({ quote, characterId, showFavoriteButton = false }: QuoteItemProps) {
   return (
     <Paper
       elevation={3}
       sx={(theme) => ({
-        padding: "16px",
+        padding: "24px",
         marginTop: "8px",
         backgroundColor: theme.palette.background.paper,
         position: "relative",
@@ -26,8 +29,19 @@ export default function QuoteItem({ quote, characterId }: QuoteItemProps) {
           right: 8,
         }}
       >
-        {getCharacterNameById(characterId)}
+        { getCharacterNameById(characterId) }
       </Box>
+      { showFavoriteButton &&
+        <Box
+          sx={{
+            position: "absolute",
+            top: 1,
+            right: 1,
+          }}
+        >
+          <FavoriteButton/>
+        </Box>
+      }
     </Paper>
   );
 }

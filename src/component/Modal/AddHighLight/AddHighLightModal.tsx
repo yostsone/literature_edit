@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Button, Box, FormControl, InputLabel, Select, MenuItem, SelectChangeEvent } from '@mui/material';
+import { Button, Box, FormControl, InputLabel, Select, MenuItem, TextField, SelectChangeEvent } from '@mui/material';
 import ModalBase from '../Base/Base';
 import { addHighlightForType } from '../../../utils/saveHighlightUtils';
 import { SetBucketsByType } from '../../../types/highlightTypes';
@@ -28,6 +28,7 @@ export default function AddHighLightModal({ isOpen, onClose, pdfText, setBuckets
     e.preventDefault();
     if (!e.currentTarget.reportValidity()) return;
     addHighlightForType(bucketType, pdfText, setBucketsByType, selection, formData);
+    onClose(false);
   };
 
   const title = `Pievienot burciņai - ${bucketType}`;
@@ -39,11 +40,16 @@ export default function AddHighLightModal({ isOpen, onClose, pdfText, setBuckets
         sx={{ display: 'flex', flexDirection: 'column', gap: 2 }}
         onSubmit={(e: React.FormEvent<HTMLFormElement>) => handleSubmit(e)}
       >
+        <TextField
+          id="outlined-required"
+          label="Ekstra lauks kaut kam"
+          placeholder="Šis neko nedara"
+        />
         <FormControl fullWidth>
-          <InputLabel id="demo-simple-select-label">Izvēlies tēlu</InputLabel>
+          <InputLabel id="character-select-label">Izvēlies tēlu</InputLabel>
           <Select
-            labelId="demo-simple-select-label"
-            id="demo-simple-select"
+            labelId="character-select-label"
+            id="character-select-label"
             value={formData.character}
             label="Izvēlies tēlu"
             onChange={handleCharChange}

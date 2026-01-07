@@ -17,7 +17,7 @@ export default function BucketHeader({ setSelectedBucket }: SelectBucketType) {
       direction="row"
       justifyContent={"space-between"}
       rowSpacing={4}
-      sx={{ paddingTop: "24px", marginBottom: "24px" }}
+      sx={{ paddingTop: "24px", marginBottom: { xs: "20px", md: "40px"} }}
     >
       { HIGHLIGHT_TYPES.map((t) => (
         <Grid

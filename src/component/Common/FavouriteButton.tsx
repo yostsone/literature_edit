@@ -3,19 +3,23 @@ import { IconButton } from '@mui/material';
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import FavoriteIcon from '@mui/icons-material/Favorite';
 
-export default function FavoriteButton() {
-  const [hovered, setHovered] = useState<boolean>(false);
+type FavoriteButtonProps = {
+  isFavorite: boolean;
+};
+
+export default function FavoriteButton({ isFavorite }: FavoriteButtonProps) {
+  const [isHovered, setIsHovered] = useState<boolean>(false);
 
   return (
     <IconButton
-      onMouseEnter={() => setHovered(true)}
-      onMouseLeave={() => setHovered(false)}
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
       sx={(theme) => ({
         transition: "color 0.3s",
-        color: hovered ? theme.palette.error.main : theme.palette.primary.main,
+        color: isHovered ? theme.palette.error.main : theme.palette.primary.main,
       })}
       >
-        { hovered ? <FavoriteIcon /> : <FavoriteBorderIcon />}
+        { isHovered || isFavorite ? <FavoriteIcon color="error" /> : <FavoriteBorderIcon />}
     </IconButton>
   );
 };

@@ -6,9 +6,14 @@ type QuoteItemProps = {
   quote: string;
   characterId: number;
   showFavoriteButton?: boolean;
+  isFavorite?: boolean;
+  onClick?: (quoteId: number) => void;
+  quoteId: number;
 }
 
-export default function QuoteItem({ quote, characterId, showFavoriteButton = false }: QuoteItemProps) {
+export default function QuoteItem({
+  quote, characterId, quoteId, showFavoriteButton = false, isFavorite = false, onClick = () => {} }: QuoteItemProps
+) {
   return (
     <Paper
       elevation={3}
@@ -17,6 +22,7 @@ export default function QuoteItem({ quote, characterId, showFavoriteButton = fal
         marginTop: "8px",
         backgroundColor: theme.palette.background.paper,
         position: "relative",
+        width: "100%",
       })}
     >
       <Typography> {quote} </Typography>
@@ -33,13 +39,14 @@ export default function QuoteItem({ quote, characterId, showFavoriteButton = fal
       </Box>
       { showFavoriteButton &&
         <Box
+          onClick={() => onClick ? onClick(quoteId) : null}
           sx={{
             position: "absolute",
             top: 1,
             right: 1,
           }}
         >
-          <FavoriteButton/>
+          <FavoriteButton isFavorite={isFavorite || false}/>
         </Box>
       }
     </Paper>

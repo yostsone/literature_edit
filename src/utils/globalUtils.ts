@@ -1,5 +1,5 @@
 import { useMediaQuery, useTheme } from '@mui/material';
-import { CHARACTERS } from '../constants';
+import { CHARACTERS, STORAGE_PDF_HIGHLIGHTS_PREFIX } from '../constants';
 
 export function isMobileWidth() {
   const theme = useTheme(); // Access the theme object
@@ -18,5 +18,5 @@ export function getCharacterNameById(characterId: number): string {
 }
 
 export function storageKeyForType(typeId: string) {
-  return `pdf_highlights_${typeId}`;
+  return `${STORAGE_PDF_HIGHLIGHTS_PREFIX}${typeId}`;
 }

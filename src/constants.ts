@@ -1,5 +1,6 @@
 import { HighlightType } from './types/highlightTypes';
 
+export const STORAGE_PDF_HIGHLIGHTS_PREFIX = 'pdf_highlights_';
 export const STORAGE_PDF_TEXT = 'pdf_text';
 export const HIGHLIGHT_TYPES: HighlightType[] = [
   { id: 'characters', name: 'Tēli',         color: '#e8d3b4' }, // light brown

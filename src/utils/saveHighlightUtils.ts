@@ -34,7 +34,8 @@ export function addHighlightForType(
     typeId: type.id,
     color: type.color,
     text: pdfText.slice(start, end),
-    characterId: characterId
+    characterId: characterId,
+    isFavorite: false,
   };
 
   // @ts-ignore

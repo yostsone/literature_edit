@@ -16,7 +16,7 @@ export default function BucketButton({ typeId, title, color, onBucketClick}: Buc
         width: "100%",
         backgroundColor: color,
         fontWeight: "bold",
-        borderRadius: { xs: "15px 15px", md: "30px 30px" },
+        borderRadius: { xs: "15px 15px", md: "40px 40px 30px 30px" },
         padding: { xs: "10px", md: "16px 20px" },
         position: "relative",
         boxShadow: "0px 4px 8px rgba(0, 0, 0, 0.2)",
@@ -56,7 +56,9 @@ export default function BucketButton({ typeId, title, color, onBucketClick}: Buc
       >
         <Typography
           sx={{
-            padding: "0 5px",
+            fontSize: { xs: "14px", md: "12px" },
+            fontWeight: "bold",
+            padding: { xs: "0 5px", md: "10px 8px" },
             border: "2px solid white",
             borderRadius: "2px",
             width: "100%",

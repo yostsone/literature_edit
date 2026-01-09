@@ -8,12 +8,13 @@ type FavoriteButtonProps = {
 };
 
 export default function FavoriteButton({ isFavorite }: FavoriteButtonProps) {
-  const [isHovered, setIsHovered] = useState<boolean>(false);
+  const [isHovered, setIsHovered] = useState<boolean>(isFavorite);
 
   return (
     <IconButton
-      onMouseEnter={() => setIsHovered(true)}
-      onMouseLeave={() => setIsHovered(false)}
+      onClick={() => {
+        setIsHovered((prev) => !prev);
+      }}
       sx={(theme) => ({
         transition: "color 0.3s",
         color: isHovered ? theme.palette.error.main : theme.palette.primary.main,

@@ -2,7 +2,6 @@ import React from 'react';
 import { Grid } from '@mui/material';
 import { HIGHLIGHT_TYPES } from '../../constants';
 import { getSelectionRangeInside } from '../../utils/saveHighlightUtils';
-import { isMobileWidth } from '../../utils/globalUtils';
 import BucketButton from '../Common/BucketButton';
 
 type SideMenuItemsProps = {
@@ -11,8 +10,6 @@ type SideMenuItemsProps = {
 }
 
 export default function SideMenuItems({ textRef, setBucketClicked }: SideMenuItemsProps) {
-  const isMobile = isMobileWidth();
-
   function addHighlightForType(typeId: string) {
     const selection = getSelectionRangeInside(textRef);
 
@@ -30,9 +27,8 @@ export default function SideMenuItems({ textRef, setBucketClicked }: SideMenuIte
       container
       direction={{ xs: "row", md: "column" }}
       justifyContent={{ xs: "flex-start" , md: "space-between" }}
-      rowSpacing={4}
+      rowSpacing={1}
       columnSpacing={{ xs: 4, sm: 8 }}
-      sx={{ paddingBottom: "20px" }}
     >
       { HIGHLIGHT_TYPES.map((t) => (
         <Grid size={{ xs: 4, sm: 3, md: 12}} key={t.id}>

@@ -19,7 +19,6 @@ export default function QuoteItem({
       elevation={3}
       sx={(theme) => ({
         padding: "24px",
-        marginTop: "8px",
         backgroundColor: theme.palette.background.paper,
         position: "relative",
         width: "100%",

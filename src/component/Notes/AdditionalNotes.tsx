@@ -1,4 +1,5 @@
 import { useTheme, alpha, Paper, Typography, TextareaAutosize } from '@mui/material';
+
 export default function AdditionalNotes() {
   const theme = useTheme();
   return (
@@ -6,11 +7,11 @@ export default function AdditionalNotes() {
       elevation={2}
       sx={(theme) => ({
         backgroundColor: alpha(theme.palette.secondary.main, 0.1),
-        padding: "16px",
+        padding: "10px 16px 20px",
         textAlign: "justify",
       })}
       >
-        <Typography variant="h6">
+        <Typography variant="h6" sx={{ pb: 1 }}>
           Citas piezīmes
         </Typography>
         <TextareaAutosize

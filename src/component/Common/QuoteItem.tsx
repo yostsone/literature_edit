@@ -22,6 +22,7 @@ export default function QuoteItem({
         backgroundColor: theme.palette.background.paper,
         position: "relative",
         width: "100%",
+        textAlign: "justify",
       })}
     >
       <Typography> {quote} </Typography>

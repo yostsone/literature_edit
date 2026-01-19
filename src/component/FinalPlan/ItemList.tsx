@@ -39,7 +39,12 @@ export default function ItemList({ items, removeItem }: ItemListProps) {
               width: "100%",
             })}
           >
-            {item.text}
+            <Typography
+              component="pre"
+              sx={{ textWrap: "auto"}}
+            >
+              {item.text}
+            </Typography>
             <IconButton
               size="small"
               sx={{ position: "absolute", bottom: "2px", right: "2px" }}

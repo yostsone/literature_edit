@@ -5,7 +5,11 @@ import * as pdfFonts from 'pdfmake/build/vfs_fonts';
 import type { FinalPlanItemType } from '../types/formTypes.js';
 
 export function generatePDF(data: FinalPlanItemType[]) {
-  const listContent = data.map((item) => `${item.text}`);
+  const listContent = data.map((item) => ({
+    text: item.text,
+    alignment: 'justify',
+    margin: [0, 0, 0, 10],
+  }));
   const docDefinition = {
     content: [
       { text: 'Pārsprieduma plāns', style: 'header' },

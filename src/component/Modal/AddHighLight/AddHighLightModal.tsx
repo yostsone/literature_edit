@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
-import { Button, Box, FormControl, InputLabel, Select, MenuItem, TextField, SelectChangeEvent } from '@mui/material';
+import { Button, Box, TextField } from '@mui/material';
 import ModalBase from '../Base/Base';
 import { addHighlightForType } from '../../../utils/saveHighlightUtils';
 import { SetBucketsByType } from '../../../types/highlightTypes';
-import { BucketSaveFormType } from '../../../types/formTypes';
-import { CHARACTERS } from '../../../constants';
+import type { BucketFormType  } from '../../../types/formTypes';
+import AddNewCharacter from '../../Common/AddNewCharacter';
 
 type AddEditBillProps = {
   isOpen: boolean;
@@ -16,19 +16,14 @@ type AddEditBillProps = {
 }
 
 export default function AddHighLightModal({ isOpen, onClose, pdfText, setBucketsByType, bucketType, selection }: AddEditBillProps) {
-  const [formData, setFormData] = useState<BucketSaveFormType>({character: ''});
-
-  const handleCharChange = (e: SelectChangeEvent) => {
-    setFormData((prevState => {
-      return { ...prevState, character: e.target.value as string };
-    }));
-  };
+  const [formData, setFormData] = useState<BucketFormType | {}>({});
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (!e.currentTarget.reportValidity()) return;
     addHighlightForType(bucketType, pdfText, setBucketsByType, selection, formData);
     onClose(false);
+    setFormData({});
   };
 
   const title = `Pievienot burciņai - ${bucketType}`;
@@ -45,20 +40,10 @@ export default function AddHighLightModal({ isOpen, onClose, pdfText, setBuckets
           label="Ekstra lauks kaut kam"
           placeholder="Šis neko nedara"
         />
-        <FormControl fullWidth>
-          <InputLabel id="character-select-label">Izvēlies tēlu</InputLabel>
-          <Select
-            labelId="character-select-label"
-            id="character-select-label"
-            value={formData.character}
-            label="Izvēlies tēlu"
-            onChange={handleCharChange}
-          >
-            {CHARACTERS.map((character) => (
-              <MenuItem key={character.id} value={String(character.id)}>{character.name}</MenuItem>
-            ))}
-          </Select>
-        </FormControl>
+        <AddNewCharacter
+          formData={formData}
+          setFormData={setFormData}
+        />
         <Box sx={{ display: 'flex', gap: 1, mt: 1 }}>
           <Button variant="contained" type="submit">
             Saglabāt

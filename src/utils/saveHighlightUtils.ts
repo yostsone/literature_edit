@@ -1,7 +1,7 @@
 import React from 'react';
 import { HIGHLIGHT_TYPES } from '../constants';
 import { HighlightSpanType, SetBucketsByType } from '../types/highlightTypes';
-import { BucketSaveFormType } from '../types/formTypes';
+import { BucketFormType } from '../types/formTypes';
 import { canBeNumber } from './globalUtils';
 
 export function addHighlightForType(
@@ -9,7 +9,7 @@ export function addHighlightForType(
     pdfText: string,
     setBucketsByType: SetBucketsByType,
     selection: { start: number; end: number } | null = null,
-    formData: BucketSaveFormType
+    formData: BucketFormType | {}
 ){
   if (!pdfText) {
     return;
@@ -24,7 +24,7 @@ export function addHighlightForType(
   if (!type) return;
 
   const { start, end } = selection;
-  const { character = '' } = formData;
+  const character = 'character' in formData ? formData.character || '' : '';
   const characterId = canBeNumber(character) ? Number(character) : 0;
 
   const newSpan: HighlightSpanType = {

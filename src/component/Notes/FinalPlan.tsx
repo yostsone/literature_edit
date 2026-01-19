@@ -5,7 +5,8 @@ import ItemList from '../FinalPlan/ItemList';
 import AddNewItem from '../FinalPlan/AddNewItem';
 import AddNewItemForm from '../FinalPlan/AddNewItemForm';
 import type { FinalPlanItemType } from '../../types/formTypes';
-import {addNewPlanItem, deletePlanItem, fetchFinalPlanData} from '../../utils/finalPlanUtils';
+import { deleteStorageItem, fetchStorageData, addNewBasicItem } from '../../utils/globalUtils';
+import { STORAGE_FINAL_PLAN } from '../../constants';
 
 export default function FinalPlan() {
   const [isAddActive, setIsAddActive] = useState<boolean>(false);
@@ -13,19 +14,19 @@ export default function FinalPlan() {
 
   // Save the new item to local storage and update the final plan list.
   const saveNewItem = (text: string) => {
-    addNewPlanItem(text);
+    addNewBasicItem<FinalPlanItemType>(STORAGE_FINAL_PLAN, text);
     setIsAddActive(false);
-    fetchFinalPlanData(setFinalPlanList);
+    fetchStorageData<FinalPlanItemType>(STORAGE_FINAL_PLAN, setFinalPlanList);
   };
 
   // Remove item from local storage and update the final plan list.
   const removeItem = (id: number) => {
-    deletePlanItem(id, setFinalPlanList);
+    deleteStorageItem<FinalPlanItemType>(id, STORAGE_FINAL_PLAN, setFinalPlanList);
   };
 
   // initially set the final plan list from local storage.
   useEffect(() => {
-    fetchFinalPlanData(setFinalPlanList);
+    fetchStorageData<FinalPlanItemType>(STORAGE_FINAL_PLAN, setFinalPlanList);
   }, []);
 
 

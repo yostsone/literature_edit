@@ -4,6 +4,7 @@ import { HighlightType } from './types/highlightTypes';
 export const STORAGE_PDF_HIGHLIGHTS_PREFIX = 'pdf_highlights_';
 export const STORAGE_PDF_TEXT = 'pdf_text';
 export const STORAGE_FINAL_PLAN = 'final_plan';
+export const STORAGE_CHARACTERS = 'characters';
 
 // highlight constants
 export const HIGHLIGHT_TYPES: HighlightType[] = [

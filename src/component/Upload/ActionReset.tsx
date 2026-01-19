@@ -4,7 +4,7 @@ import Popover from '@mui/material/Popover';
 import DeleteOutlineIcon from '@mui/icons-material/DeleteOutline';
 import MoreVertIcon from '@mui/icons-material/MoreVert';
 import type { HighlightSpanType, SetBucketsByType } from '../../types/highlightTypes';
-import { HIGHLIGHT_TYPES, STORAGE_PDF_TEXT } from '../../constants';
+import {HIGHLIGHT_TYPES, STORAGE_CHARACTERS, STORAGE_PDF_TEXT} from '../../constants';
 import { isMobileWidth, storageKeyForType } from '../../utils/globalUtils';
 
 type ActionResetProps = {
@@ -18,7 +18,7 @@ type ActionResetProps = {
  * @param setBucketsByType
  */
 const clearAll = (setPdfText: (text: string) => void, setBucketsByType: SetBucketsByType) => {
-  if (!confirm('Tiks dzēsts augšupielādētais fails un burciņu dati!')) return;
+  if (!confirm('Tiks dzēsts augšupielādētais fails, burciņu dati un tēli!')) return;
 
   setPdfText('');
   const cleared: Record<string, HighlightSpanType[]> = {};
@@ -29,6 +29,7 @@ const clearAll = (setPdfText: (text: string) => void, setBucketsByType: SetBucke
   }
   setBucketsByType(cleared);
   localStorage.removeItem(STORAGE_PDF_TEXT);
+  localStorage.removeItem(STORAGE_CHARACTERS);
 }
 
 /**

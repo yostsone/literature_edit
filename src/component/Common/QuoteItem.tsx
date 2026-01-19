@@ -1,6 +1,7 @@
 import { Box, Paper, Typography } from '@mui/material';
 import { getCharacterNameById } from '../../utils/globalUtils';
 import FavoriteButton from './FavouriteButton';
+import CopyButton from './CopyButton';
 
 type QuoteItemProps = {
   quote: string;
@@ -48,6 +49,9 @@ export default function QuoteItem({
         >
           <FavoriteButton isFavorite={isFavorite || false}/>
         </Box>
+      }
+      {!showFavoriteButton &&
+        <CopyButton valueToCopy={quote}/>
       }
     </Paper>
   );

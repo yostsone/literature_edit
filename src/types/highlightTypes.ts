@@ -13,6 +13,7 @@ export type HighlightSpanType = {
   text?: string;
   characterId: number; // character ID
   isFavorite: boolean;
+  subcategoryId: number;
 }
 
 export type BucketType = Record<string, HighlightSpanType[]>;

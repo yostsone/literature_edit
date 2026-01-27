@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom';
+import AutoStoriesTwoToneIcon from '@mui/icons-material/AutoStoriesTwoTone';
 import { AppBar, Box, Grid, Toolbar, Typography } from '@mui/material';
 import MainMenu from '../Menu/MainMenu';
 
@@ -35,15 +36,14 @@ export default function Header() {
                 component={Link}
                 to="/literature_edit"
                 sx={{
-                  fontSize: "1rem",
+                  fontSize: "1.5rem",
+                  fontWeight: "bold",
                   color: "inherit",
                   textDecoration: "none",
-                  border: "2px dashed white",
-                  padding: "5px",
-                  borderRadius: "5px",
+                  textTransform: "uppercase",
                 }}
               >
-                  Nosaukums??
+                <span>Triloģija</span><AutoStoriesTwoToneIcon fontSize="small"/>
               </Typography>
             </Toolbar>
             <MainMenu />

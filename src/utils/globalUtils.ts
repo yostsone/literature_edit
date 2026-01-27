@@ -1,6 +1,5 @@
 import { useMediaQuery, useTheme } from '@mui/material';
-import { STORAGE_PDF_HIGHLIGHTS_PREFIX, STORAGE_CHARACTERS } from '../constants';
-import { CharacterItemType } from '../types/formTypes';
+import { STORAGE_PDF_HIGHLIGHTS_PREFIX } from '../constants';
 
 export function isMobileWidth() {
   const theme = useTheme(); // Access the theme object
@@ -10,13 +9,6 @@ export function isMobileWidth() {
 export function canBeNumber(value: string): boolean {
   if (value.trim() === '') return false;
   return !isNaN(Number(value));
-}
-
-// To be updated with local storage values in the future
-export function getCharacterNameById(characterId: number): string {
-  const charactersData = JSON.parse(localStorage.getItem(STORAGE_CHARACTERS) || 'null') || [];
-  const character = charactersData.find((char: CharacterItemType) => char.id === characterId);
-  return character ? character.text : 'Nezināms tēls';
 }
 
 export function storageKeyForType(typeId: string) {

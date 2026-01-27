@@ -1,14 +1,19 @@
-import { Grid } from '@mui/material';
+import { alpha, Grid } from '@mui/material';
 import { HIGHLIGHT_TYPES } from '../../constants';
 import BucketButton from '../Common/BucketButton';
 
 type SelectBucketType = {
+  selectedBucket: string;
   setSelectedBucket: (typeId: string) => void;
 }
 
-export default function BucketHeader({ setSelectedBucket }: SelectBucketType) {
+export default function BucketHeader({ selectedBucket, setSelectedBucket }: SelectBucketType) {
   const onBucketClick = (typeId: string) => {
     setSelectedBucket(typeId);
+  };
+
+  const isActiveBucket = (activeBucket: string, bucket: string):boolean => {
+    return activeBucket === bucket;
   };
 
   return (
@@ -24,7 +29,12 @@ export default function BucketHeader({ setSelectedBucket }: SelectBucketType) {
           key={t.id}
           sx={{width: { xs: "65px", md: "142px"}}}
         >
-          <BucketButton onBucketClick={onBucketClick} typeId={t.id} title={t.name} color={t.color}/>
+          <BucketButton
+            onBucketClick={onBucketClick}
+            typeId={t.id}
+            title={t.name}
+            color={isActiveBucket(selectedBucket, t.id) ? t.color : alpha('#a9a9a9', 0.3)}
+          />
         </Grid>
       ))}
     </Grid>

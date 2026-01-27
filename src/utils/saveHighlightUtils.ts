@@ -36,6 +36,7 @@ export function addHighlightForType(
     text: pdfText.slice(start, end),
     characterId: characterId,
     isFavorite: false,
+    subcategoryId: 0,
   };
 
   // @ts-ignore

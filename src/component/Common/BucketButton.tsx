@@ -14,7 +14,7 @@ export default function BucketButton({ typeId, title, color, onBucketClick}: Buc
   return (
     <Button
         onClick={() => onBucketClick(typeId)}
-        sx={{ display: "block", width: { xs: "60px", sm: "85px", md: "150px" } }}
+        sx={{ display: "block", width: { xs: "100%", sm: "85px", md: "150px" }, padding: { xs: 0, md: "revert" } }}
     >
       <BucketIcon fillColor={color} title={title} isMobile={isMobile}/>
     </Button>

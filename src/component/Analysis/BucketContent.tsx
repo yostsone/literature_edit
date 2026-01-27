@@ -3,6 +3,7 @@ import { Grid, Typography } from '@mui/material';
 import { type HighlightSpanType } from '../../types/highlightTypes';
 import { storageKeyForType } from '../../utils/globalUtils';
 import QuoteItem from '../Common/QuoteItem';
+import CharacterAmounts from './CharacterAmounts';
 type BucketSelectProps = {
   selectedBucket: string | null;
 }
@@ -10,6 +11,7 @@ type BucketSelectProps = {
 export default function BucketSelect({ selectedBucket }: BucketSelectProps ) {
   const [bucketData, setBucketData] = useState<HighlightSpanType[]>([]);
   const storageKey = selectedBucket ? storageKeyForType(selectedBucket) : null;
+  const isCharacterBucket = selectedBucket === 'characters';
 
   useEffect(() => {
     if (storageKey) {
@@ -50,6 +52,7 @@ export default function BucketSelect({ selectedBucket }: BucketSelectProps ) {
       container
       gap={3}
     >
+      {isCharacterBucket && <CharacterAmounts bucketData={bucketData} /> }
       {bucketData.map((item: HighlightSpanType, index: number) => (
         <QuoteItem
           quote={item.text || ''}

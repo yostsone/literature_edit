@@ -1,5 +1,5 @@
 import { Box, Paper, Typography } from '@mui/material';
-import { getCharacterNameById } from '../../utils/globalUtils';
+import { getCharacterNameById } from '../../utils/characterUtils';
 import FavoriteButton from './FavouriteButton';
 import CopyButton from './CopyButton';
 

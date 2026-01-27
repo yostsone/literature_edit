@@ -33,7 +33,7 @@ export default function BucketIcon({ fillColor, title, isMobile }: BucketIconPro
           sx={{
             fontWeight: "bold",
             position: "absolute",
-            top: "53%",
+            top: { xs: "50%", sm: "53%" },
             left: "51%",
             transform: "translate(-50%, -50%)",
           }}

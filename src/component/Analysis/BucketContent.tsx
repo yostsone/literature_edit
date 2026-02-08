@@ -58,6 +58,7 @@ export default function BucketSelect({ selectedBucket }: BucketSelectProps ) {
           quote={item.text || ''}
           quoteId={item.id}
           characterId={item.characterId}
+          subcategoryId={item.subcategoryId}
           key={item.id}
           showFavoriteButton={true}
           isFavorite={item.isFavorite}

@@ -1,6 +1,7 @@
 export type BucketFormType = {
-  character:  string;
+  character: string;
   tempChar?: string;
+  langCat?: string;
 };
 
 export type FinalPlanItemType = {

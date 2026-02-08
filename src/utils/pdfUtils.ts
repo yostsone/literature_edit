@@ -28,5 +28,5 @@ export function generatePDF(data: FinalPlanItemType[]) {
   };
 
   // Generate and download the PDF
-  pdfMake.createPdf(docDefinition).download("data.pdf");
+  pdfMake.createPdf(docDefinition).download("parspriedums.pdf");
 };

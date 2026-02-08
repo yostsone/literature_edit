@@ -1,5 +1,6 @@
 import { Box, Paper, Typography } from '@mui/material';
 import { getCharacterNameById } from '../../utils/characterUtils';
+import { getSubcategoryNameById } from '../../utils/globalUtils';
 import FavoriteButton from './FavouriteButton';
 import CopyButton from './CopyButton';
 
@@ -10,10 +11,11 @@ type QuoteItemProps = {
   isFavorite?: boolean;
   onClick?: (quoteId: number) => void;
   quoteId: number;
+  subcategoryId: number;
 }
 
 export default function QuoteItem({
-  quote, characterId, quoteId, showFavoriteButton = false, isFavorite = false, onClick = () => {} }: QuoteItemProps
+  quote, characterId, quoteId, showFavoriteButton = false, isFavorite = false, onClick = () => {}, subcategoryId }: QuoteItemProps
 ) {
   return (
     <Paper
@@ -27,6 +29,16 @@ export default function QuoteItem({
       })}
     >
       <Typography> {quote} </Typography>
+      <Box
+        sx={{
+          position: "absolute",
+          fontSize: "0.8em",
+          bottom: 1,
+          left: 8,
+        }}
+      >
+        { getSubcategoryNameById(subcategoryId) }
+      </Box>
       <Box
         sx={{
           fontStyle: "italic",

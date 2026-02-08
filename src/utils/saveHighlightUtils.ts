@@ -25,7 +25,9 @@ export function addHighlightForType(
 
   const { start, end } = selection;
   const character = 'character' in formData ? formData.character || '' : '';
+  const langCat = 'langCat' in formData ? formData.langCat || '' : '';
   const characterId = canBeNumber(character) ? Number(character) : 0;
+  const subcategoryId = canBeNumber(langCat) ? Number(langCat) : 0;
 
   const newSpan: HighlightSpanType = {
     id: Date.now(),
@@ -36,7 +38,7 @@ export function addHighlightForType(
     text: pdfText.slice(start, end),
     characterId: characterId,
     isFavorite: false,
-    subcategoryId: 0,
+    subcategoryId: subcategoryId,
   };
 
   // @ts-ignore

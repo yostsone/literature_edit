@@ -5,6 +5,7 @@ import { addHighlightForType } from '../../../utils/saveHighlightUtils';
 import { SetBucketsByType } from '../../../types/highlightTypes';
 import type { BucketFormType  } from '../../../types/formTypes';
 import AddNewCharacter from '../../Common/AddNewCharacter';
+import AddLanguageCat from "../../Common/AddLanguageCat";
 
 type AddEditBillProps = {
   isOpen: boolean;
@@ -35,11 +36,7 @@ export default function AddHighLightModal({ isOpen, onClose, pdfText, setBuckets
         sx={{ display: 'flex', flexDirection: 'column', gap: 2 }}
         onSubmit={(e: React.FormEvent<HTMLFormElement>) => handleSubmit(e)}
       >
-        <TextField
-          id="outlined-required"
-          label="Ekstra lauks kaut kam"
-          placeholder="Šis neko nedara"
-        />
+        { bucketType === 'Valoda' && <AddLanguageCat formData={formData} setFormData={setFormData} />}
         <AddNewCharacter
           formData={formData}
           setFormData={setFormData}

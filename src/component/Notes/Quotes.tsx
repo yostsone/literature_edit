@@ -18,7 +18,13 @@ export default function Quotes() {
       </Typography>
       <Grid container gap={3} direction="column">
         { favoriteQuotes.length !== 0 && (favoriteQuotes.map((quote, index) => (
-          <QuoteItem quote={quote.text || ''} characterId={quote.characterId} key={quote.id} quoteId={quote.id}/>
+          <QuoteItem
+            quote={quote.text || ''}
+            characterId={quote.characterId}
+            key={quote.id}
+            quoteId={quote.id}
+            subcategoryId={quote.subcategoryId}
+          />
         )))}
       </Grid>
     </Paper>

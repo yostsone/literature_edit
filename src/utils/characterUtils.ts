@@ -1,7 +1,6 @@
-import { STORAGE_CHARACTERS } from '../constants';
+import { STORAGE_CHARACTERS} from '../constants';
 import { CharacterItemType } from '../types/formTypes';
 import type { HighlightSpanType } from '../types/highlightTypes';
-
 
 export function getCharacterNameById(characterId: number): string {
   const charactersData = JSON.parse(localStorage.getItem(STORAGE_CHARACTERS) || 'null') || [];

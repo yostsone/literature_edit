@@ -22,9 +22,13 @@ export const MENU_ITEMS = [
   { id: 3, title: 'Piezīmes', link: '/literature_edit/notes' }
 ];
 
-// temp constants
-export const CHARACTERS = [
-  { id: 1, name: 'Lāčplēšis' },
-  { id: 2, name: 'Cibiņš' },
-  { id: 3, name: 'Anna no zaļajiem jumtiem' }
+// language categories constant
+export const LANGUAGE_CAT = [
+  { id: 1, text: 'Metafora' },
+  { id: 2, text: 'Epitets' },
+  { id: 3, text: 'Salīdzinājums' },
+  { id: 4, text: 'Personifikācija' },
+  { id: 5, text: 'Paralēlisms' },
+  { id: 6, text: 'Metonīmija' },
+  { id: 0, text: 'Cits' },
 ];

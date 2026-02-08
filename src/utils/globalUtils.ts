@@ -1,5 +1,5 @@
 import { useMediaQuery, useTheme } from '@mui/material';
-import { STORAGE_PDF_HIGHLIGHTS_PREFIX } from '../constants';
+import { LANGUAGE_CAT, STORAGE_PDF_HIGHLIGHTS_PREFIX } from '../constants';
 
 export function isMobileWidth() {
   const theme = useTheme(); // Access the theme object
@@ -68,4 +68,13 @@ export function addNewBasicItem<T extends { id: number; text: string }>(storageK
 
   parsedData.push(newItem);
   localStorage.setItem(storageKey, JSON.stringify(parsedData));
+}
+
+
+// Get subcategory name by its ID from LANGUAGE_CAT
+export function getSubcategoryNameById(subCatId: number): string {
+  if (subCatId === 0) return '';
+
+  const subCat =  LANGUAGE_CAT.find(cat => cat.id === subCatId);
+  return subCat ? subCat.text : '';
 }

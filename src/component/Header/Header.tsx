@@ -1,5 +1,4 @@
 import { Link } from 'react-router-dom';
-import AutoStoriesTwoToneIcon from '@mui/icons-material/AutoStoriesTwoTone';
 import { AppBar, Box, Grid, Toolbar, Typography } from '@mui/material';
 import MainMenu from '../Menu/MainMenu';
 
@@ -43,7 +42,15 @@ export default function Header() {
                   textTransform: "uppercase",
                 }}
               >
-                <span>Triloģija</span><AutoStoriesTwoToneIcon fontSize="small"/>
+                <Grid container alignItems="center" spacing={1}>
+                  <Grid sx={{ width: "50px"}}>
+                    <img
+                        src={"../../literature_edit/literature.png"}
+                        style={{ maxWidth: "60px", width: "100%", paddingTop: "10px" }}
+                    />
+                  </Grid>
+                  <span>Triloģija</span>
+                </Grid>
               </Typography>
             </Toolbar>
             <MainMenu />
